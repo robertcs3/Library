@@ -7,10 +7,46 @@
     <title>Library</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="reset.css">
-
+    
 </head>
 <body>
+
+    <div id="catalog-container">
+
+
+
+    </div>
+
+   
+    
+    <button id="new-book">NEW BOOK</button>
+
+    <form action="addBook" method="post" id="form">
+        <fieldset>
+            <legend>Add a Book!</legend>
+            <div>
+                <label for="author">*Author: </label>
+                <input type="text" id="author-name" name="author-name" required>
+            </div>
+
+            <div>
+                <label for="author">*Title: </label>
+                <input type="text" id="title-name" name="title-name" required>
+            </div>
+
+            <div>
+                <label for="author">*Page Numbers: </label>
+                <input type="text" id="page-numbers" name="page-numbers" required>
+            </div>
+
+            <div>
+                <label for="author">*Have you read this before?: </label>
+                <input type="text" id="status" name="status" required>
+            </div>
+        </fieldset>
+    </form>
+
     
 </body>
-<script link="script.js"></script>
+<script src="script.js"></script>
 </html>
