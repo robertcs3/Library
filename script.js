@@ -1,26 +1,10 @@
 let myLibrary = [
-    {
-        title: 'Book1',
-        author: 'Bobby',
-        pages: '500',
-        status: 'read',
-
-    },
-    {
-        title: 'Book2',
-        author: 'Sammy',
-        pages: '520',
-        status: 'unread',
-
-    },
-    {
-        title: 'Book3',
-        author: 'Lucy',
-        pages: '455',
-        status: 'read',
-
-    },
+   
 ]
+
+
+
+
 
 function Book() {
 
@@ -34,21 +18,26 @@ function addBookToLibrary(title, author, pages, status) {
     book.author = author;
     book.pages = pages;
     book.status = status;
-
     myLibrary.push(book);
+    
 }
 
+let existingBooks = [];
 
 /* Display books in catalog */
 function displayCatalog () {
+   
+
+
     myLibrary.forEach(book => {
+        if (!existingBooks.includes(book.title)){
         let card = document.createElement('div');
         card.setAttribute('class', 'card');
         card.setAttribute('id', myLibrary.indexOf(book));
         let title = document.createElement('p');
         let author = document.createElement('p');
         let pages = document.createElement('p');
-        let status = document.createElement('p');
+        let status = document.createElement('button');
         let button = document.createElement('button');
         button.setAttribute('class', myLibrary.indexOf(book));
         /* Add card class to catalog */
@@ -66,10 +55,14 @@ function displayCatalog () {
         pages.textContent = "Pages: " + book.pages;
         status.textContent = book.status;
         button.textContent = "Remove";
+
+        existingBooks.push(book.title);
+
+        }
+        
     })
     
 }
-
 let catalog = document.getElementById('catalog-container');
 
 let addNew = document.getElementById('new-book');
@@ -81,7 +74,40 @@ form.style.display = 'none';
 
 
 
-displayCatalog();
+
+
+
+let submit = document.getElementById('submit-button');
+
+let authorInput = document.getElementById('author-name');
+
+let titleInput = document.getElementById('title-name');
+
+let pagesInput = document.getElementById('page-numbers');
+
+let statusInput = document.getElementById('status-input');
+
+submit.addEventListener('click', () => {
+    if (!titleInput.value == '' && !authorInput.value == ''
+     && !pagesInput.value == '') {
+        addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value,
+            statusInput.value);
+
+        titleInput.value = '';
+        authorInput.value = '';
+        pagesInput.value = '';
+        statusInput.value = '';
+
+        displayCatalog();
+
+     }
+   
+
+       
+    
+    console.log(myLibrary);
+})
+
 
 
 

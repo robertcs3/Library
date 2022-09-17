@@ -21,28 +21,36 @@
     
     <button id="new-book">NEW BOOK</button>
 
-    <form action="addBook" method="post" id="form">
+    <form action="" id="form">
         <fieldset>
             <legend>Add a Book!</legend>
             <div>
-                <label for="author">*Author: </label>
-                <input type="text" id="author-name" name="author-name" required>
+                <label for="author-name">*Author: </label>
+                <input type="text" id="author-name" name="author" required>
             </div>
 
             <div>
-                <label for="author">*Title: </label>
-                <input type="text" id="title-name" name="title-name" required>
+                <label for="title-name">*Title: </label>
+                <input type="text" id="title-name" name="title" required>
             </div>
 
             <div>
-                <label for="author">*Page Numbers: </label>
-                <input type="text" id="page-numbers" name="page-numbers" required>
+                <label for="page-numbers">*Page Numbers: </label>
+                <input type="number" id="page-numbers" name="pages" required>
             </div>
 
             <div>
-                <label for="author">*Have you read this before?: </label>
-                <input type="text" id="status" name="status" required>
+                <label for="status-input">*Read Status: </label>
+                
+                <select name="status" id="status-input">
+                    <option value="unread">unread</option>
+                    <option value="read">read</option>
+                </select>
             </div>
+
+            
+                <button id="submit-button">Submit</button>
+            
         </fieldset>
     </form>
 
