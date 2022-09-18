@@ -13,12 +13,16 @@ function Book() {
 
 /* Take user input and store into myLibrary array */
 function addBookToLibrary(title, author, pages, status) {
+
     let book = {};
     book.title = title;
     book.author = author;
     book.pages = pages;
     book.status = status;
-    myLibrary.push(book);
+
+
+    if (!existingBooks.includes(book.title)) myLibrary.push(book);
+    
 
 }
 
@@ -36,7 +40,7 @@ function displayCatalog() {
             let title = document.createElement('p');
             let author = document.createElement('p');
             let pages = document.createElement('p');
-            let status = document.createElement('button');
+           
             let button = document.createElement('button');
             button.setAttribute('class', myLibrary.indexOf(book));
             /* Add card class to catalog */
@@ -46,20 +50,21 @@ function displayCatalog() {
             card.appendChild(title);
             card.appendChild(author);
             card.appendChild(pages);
-            card.appendChild(status);
+            changeStatus(card);
             card.appendChild(button);
 
             title.textContent = "Title: " + book.title;
             author.textContent = "Author: " + book.author;
             pages.textContent = "Pages: " + book.pages;
-            status.textContent = book.status;
             button.textContent = "Remove";
 
             existingBooks.push(book.title);
 
+
+            /* Add remove button functionality */
             remove();
 
-
+           console.log(myLibrary)
 
         }
 
@@ -68,17 +73,35 @@ function displayCatalog() {
 }
 
 function remove() {
-    let remove = document.querySelectorAll('.card > button:last-child');
+    let remove = document.querySelectorAll('.card :last-child');
     for (const element of remove) {
         element.addEventListener('click', () => {
 
             myLibrary.forEach(book => {
                 if (myLibrary.indexOf(book) == element.className) {
-                    element.parentElement.remove(element.parentElement.children)
+                    element.parentElement.remove(element.parentElement.children);
+                    myLibrary.splice(myLibrary.indexOf(book));
+                    console.log(myLibrary);
                 }
             })
         });
     }
+
+  
+}
+
+function changeStatus(card) {
+    let toggle = document.createElement('label');
+    let box = document.createElement('input');
+    let slider = document.createElement('span');
+
+    toggle.setAttribute('class', 'switch');
+    box.setAttribute('type', 'checkbox');
+    slider.setAttribute('class', 'slider round')
+
+    toggle.appendChild(box);
+    toggle.appendChild(slider);
+    card.appendChild(toggle);
 
 }
 let catalog = document.getElementById('catalog-container');
