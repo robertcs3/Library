@@ -53,9 +53,9 @@ function displayCatalog() {
             changeStatus(card);
             card.appendChild(button);
 
-            title.textContent = "Title: " + book.title;
-            author.textContent = "Author: " + book.author;
-            pages.textContent = "Pages: " + book.pages;
+            title.textContent = book.title;
+            author.textContent = book.author;
+            pages.textContent =  book.pages;
             button.textContent = "Remove";
 
             existingBooks.push(book.title);
@@ -64,8 +64,6 @@ function displayCatalog() {
             /* Add remove button functionality */
             remove();
 
-           console.log(myLibrary)
-
         }
 
     })
@@ -73,15 +71,14 @@ function displayCatalog() {
 }
 
 function remove() {
+    console.log(myLibrary)
     let remove = document.querySelectorAll('.card :last-child');
     for (const element of remove) {
         element.addEventListener('click', () => {
-
             myLibrary.forEach(book => {
-                if (myLibrary.indexOf(book) == element.className) {
+                if (book.title == element.parentElement.firstElementChild.textContent) {
                     element.parentElement.remove(element.parentElement.children);
-                    myLibrary.splice(myLibrary.indexOf(book));
-                    console.log(myLibrary);
+                    myLibrary.splice(myLibrary.indexOf(book), 1);
                 }
             })
         });
