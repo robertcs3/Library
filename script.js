@@ -1,14 +1,6 @@
-let myLibrary = [
+let myLibrary = []
 
-]
-
-
-
-
-
-function Book() {
-
-}
+function Book() {}
 
 
 /* Take user input and store into myLibrary array */
@@ -50,7 +42,7 @@ function displayCatalog() {
             card.appendChild(title);
             card.appendChild(author);
             card.appendChild(pages);
-            changeStatus(card);
+            changeStatus(card, book.status);
             card.appendChild(button);
 
             title.textContent = book.title;
@@ -87,14 +79,23 @@ function remove() {
   
 }
 
-function changeStatus(card) {
+function changeStatus(card, status) {
     let toggle = document.createElement('label');
     let box = document.createElement('input');
     let slider = document.createElement('span');
 
-    toggle.setAttribute('class', 'switch');
-    box.setAttribute('type', 'checkbox');
-    slider.setAttribute('class', 'slider round')
+    if (status == 'unread') {
+        toggle.setAttribute('class', 'switch');
+        box.setAttribute('type', 'checkbox');
+        slider.setAttribute('class', 'slider round');
+    } else {
+        toggle.setAttribute('class', 'switch');
+        box.setAttribute('type', 'checkbox',);
+        box.checked = true;
+        slider.setAttribute('class', 'slider round');
+    }
+
+  
 
     toggle.appendChild(box);
     toggle.appendChild(slider);

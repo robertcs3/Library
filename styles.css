@@ -76,6 +76,10 @@ input:checked+.slider {
     background-color: #16a34a;
 }
 
+input +.slider {
+    background-color: red;
+}
+
 
 
 input:focus+.slider {
@@ -92,7 +96,7 @@ input:checked+.slider:before {
 .slider.round {
     border-radius: 34px;
     height: 33px;
-    background-color: red;
+   
 }
 
 .slider.round:before {
