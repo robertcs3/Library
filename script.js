@@ -71,6 +71,7 @@ function remove() {
                 if (book.title == element.parentElement.firstElementChild.textContent) {
                     element.parentElement.remove(element.parentElement.children);
                     myLibrary.splice(myLibrary.indexOf(book), 1);
+                    existingBooks.splice(book.title);
                 }
             })
         });
@@ -153,6 +154,7 @@ addNew.addEventListener('click', () => {
     if (form.style.display === 'none') {
 
         form.style.display = 'block';
+    
     } else {
 
         form.style.display = 'none';
