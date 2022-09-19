@@ -80,6 +80,7 @@ label, #status-container, #submit-container {
     padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
+
 #submit-button, #new-book button {
     font-size: 1.25rem;
     font-family: Comic Sans MS, Comic Sans, cursive;
@@ -131,6 +132,10 @@ label, #status-container, #submit-container {
 #book-list {
     display: flex;
     flex-wrap: wrap;
+}
+
+#book-list button {
+    padding: 0.35rem;
 }
 
 #catalog-header, #header {
@@ -262,6 +267,17 @@ input:checked+.slider:before {
 .slider.round:before {
     border-radius: 50%;
 
+}
+
+button {
+    transition: 1s ease;
+}
+
+button:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    transition: 1s ease;
 }
 
 

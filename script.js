@@ -63,7 +63,6 @@ function displayCatalog() {
 }
 
 function remove() {
-    console.log(myLibrary)
     let remove = document.querySelectorAll('.card :last-child');
     for (const element of remove) {
         element.addEventListener('click', () => {
@@ -80,6 +79,7 @@ function remove() {
   
 }
 
+
 function changeStatus(card, status) {
     let toggle = document.createElement('label');
     let box = document.createElement('input');
@@ -94,9 +94,18 @@ function changeStatus(card, status) {
         box.setAttribute('type', 'checkbox',);
         box.checked = true;
         slider.setAttribute('class', 'slider round');
-    }
+    }  
 
-  
+    /* Change status on toggle */
+    myLibrary.forEach(book => {
+        toggle.addEventListener('click', () => {
+            if (box.checked) {
+                book.status = 'read';
+            } else {
+                book.status = 'unread';
+            }
+        })
+    });
 
     toggle.appendChild(box);
     toggle.appendChild(slider);
@@ -109,9 +118,6 @@ let addNew = document.getElementById('new-book');
 
 const form = document.getElementById('form');
 
-form.style.display = 'none';
-
-
 let submit = document.getElementById('submit-button');
 
 let authorInput = document.getElementById('author-name');
@@ -121,6 +127,8 @@ let titleInput = document.getElementById('title-name');
 let pagesInput = document.getElementById('page-numbers');
 
 let statusInput = document.getElementById('status-input');
+
+form.style.display = 'none';
 
 
 /* Add a new book */
