@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,54 +8,82 @@
     <title>Library</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="reset.css">
-    
+
 </head>
+
 <body>
 
     <div id="catalog-container">
+        <div id="catalog-header">
+            <h1>Library Catalog</h1>
+        </div>
 
+        <div id="book-list">
 
+        </div>
 
     </div>
 
-   
+    <div class="body">
+        <div id="header">
+            <h1>
+                Welcome!
+            </h1>
+        </div>
+
+        <div id="form-container">
+            <form action="" id="form">
+                    
+                    <div class="label">
+                        <label for="author-name">*Author: </label>
+                        <input type="text" id="author-name" name="author" required>
+                    </div>
     
-    <button id="new-book">NEW BOOK</button>
-
-    <form action="" id="form">
-        <fieldset>
-            <legend>Add a Book!</legend>
-            <div>
-                <label for="author-name">*Author: </label>
-                <input type="text" id="author-name" name="author" required>
-            </div>
-
-            <div>
-                <label for="title-name">*Title: </label>
-                <input type="text" id="title-name" name="title" required>
-            </div>
-
-            <div>
-                <label for="page-numbers">*Page Numbers: </label>
-                <input type="number" id="page-numbers" name="pages" required>
-            </div>
-
-            <div>
-                <label for="status-input">*Read Status: </label>
+                    <div class="label">
+                        <label for="title-name">*Title: </label>
+                        <input type="text" id="title-name" name="title" required>
+                    </div>
+    
+                    <div class="label">
+                        <label for="page-numbers">*Page Numbers: </label>
+                        <input type="number" id="page-numbers" name="pages" required>
+                    </div>
+    
+                    <div>
+                        <label for="status-input" id="read-status-text">*Read Status: </label>
+    
+                        <div id="status-container">
+                            <select name="status" id="status-input">
+                                <option value="unread" selected>unread</option>
+                                <option value="read">read</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div id="submit-container"><button id="submit-button" type="button">SUBMIT</button></div>
+    
                 
-                <select name="status" id="status-input">
-                    <option value="unread" selected>unread</option>
-                    <option value="read">read</option>
-                </select>
-            </div>
+            </form>
+        </div>
+        
 
-            
-                <button id="submit-button" type="button">Submit</button>
-            
-        </fieldset>
-    </form>
+        <div id="new-book">
+            <button>
+                NEW BOOK
+            </button>
+        </div>
 
-    
+        <div id="footer">
+            <p>Footer</p>
+        </div>
+
+    </div>
+
+
+
+
+
 </body>
 <script src="script.js"></script>
+
 </html>

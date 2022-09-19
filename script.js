@@ -36,7 +36,7 @@ function displayCatalog() {
             let button = document.createElement('button');
             button.setAttribute('class', myLibrary.indexOf(book));
             /* Add card class to catalog */
-            catalog.appendChild(card);
+            bookList.appendChild(card);
 
             /* Add attributes of book to the card */
             card.appendChild(title);
@@ -102,18 +102,13 @@ function changeStatus(card, status) {
     card.appendChild(toggle);
 
 }
-let catalog = document.getElementById('catalog-container');
+let bookList = document.getElementById('book-list');
 
 let addNew = document.getElementById('new-book');
 
 const form = document.getElementById('form');
 
 form.style.display = 'none';
-
-
-
-
-
 
 
 let submit = document.getElementById('submit-button');
